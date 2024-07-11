@@ -9,9 +9,9 @@ function Folder:linemode(area)
 	for _, f in ipairs(self:by_kind(self.CURRENT).window) do
 		local time = f.cha.modified // 1
 		if time and os.date("%Y", time) == year then
-			time = os.date("%b %d  %Y", time)
+			time = time and os.date("%Y %b %d  %Y", time)
 		else
-			time = time and os.date("%b %d %H:%M", time) or ""
+			time = time and os.date("%Y %b %d %H:%M", time) or ""
 		end
 
 		local size = f:size()
