@@ -1,8 +1,8 @@
-require("full-border"):setup()
+-- require("full-border"):setup()
 
 function Linemode:custom()
 	local year = os.date("%Y")
-	local time = (self._file.cha.mtime or 0) // 1
+	local time = (self._file.cha.mtime or 0)
 	time = os.date("%d %b %Y", time)
 	--if time > 0 and os.date("%Y", time) == year then
 	--	--time = os.date("%b %d %H:%M", time)

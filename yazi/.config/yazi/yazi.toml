@@ -2,4 +2,7 @@
 show_hidden = true
 sort_by = "natural"
 linemode = 'custom'
+[preview]
+max_width = 1000
+max_height=1000
 
