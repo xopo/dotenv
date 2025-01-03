@@ -1,5 +1,4 @@
-local selected_or_hovered = ya.sync(function()
-	local tab, paths = cx.active, {}
+local tab, paths = cx.active, {}
 	for _, u in pairs(tab.selected) do
 		paths[#paths + 1] = tostring(u)
 	end

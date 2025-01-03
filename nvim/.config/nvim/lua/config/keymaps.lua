@@ -1,13 +1,20 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-local map = LazyVim.safe_keymap_set
-map("n", "<leader>rr", "<cmd>lua require('kulala').run()<cr>", { desc = "Run Kulala request" })
-map("n", "<leader>ra", "<cmd>lua require('kulala').run_all()<cr>", { desc = "Run Kulala all requests" })
-map("n", "˚", "<cmd>cprev<CR>", { desc = "Go to prev item in quick list", remap = true })
-map("n", "∆", "<cmd>cnext<CR>", { desc = "Go to next item in quick list", remap = true })
-map("n", "J", "<cmd>cnext<CR>", { desc = "Go to next item in quick list", remap = true })
-map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
--- map({ "<leader>rr", "<cmd>lua require('kulala').run()<cr>", desc = "Run Kulala request" })
--- map({ "<leader>ra", "<cmd>lua require('kulala').run_all()<cr>", desc = "Run Kulala all requests" })
+local map = vim.keymap.set
+-- cnext ancprev change on quicklist
+map("n", "˚", "<cmd>cprev<CR>", { desc = "prev quick list element" })
+map("n", "∆", "<cmd>cnext<CR>", { desc = "next quick list element" })
+
+-- resource for lua stuff
+map("n", "<space><space>x", "<cmd>source %<CR>")
+
+-- Oil speed shortcut
+-- map("n", "-", "<CMD>Yazi<CR>", { desc = "Open parent directory" })
+
+-- file editor default open shortcut set to Yazi
+map("n", "<space>fe", "<CMD>Yazi<CR>")
+
+-- undotree
+map("n", "<space>U", ":UndotreeToggle<CR>", { desc = "toggle undo tree" })
