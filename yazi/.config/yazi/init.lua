@@ -4,23 +4,16 @@ require("full-border"):setup({
 })
 
 function Linemode:custom()
-	local year = os.date("%Y")
-	local time = (self._file.cha.mtime or 0)
-	time = os.date("%d %b %Y", time)
-
+	local time = math.floor(self._file.cha.mtime or 0)
+	local nicetime = os.date("%d %b %Y", time)
 	local size = self._file:size()
-	--return ui.Line(string.format(" %s %s ", size and ya.readable_size(size) or "-", time))
-	return ui.Line({
-		ui.Span(" "),
-		ui.Span(size and ya.readable_size(size):gsub(" ", "") or "-"),
-		ui.Span(" "),
-		ui.Span(time),
-		ui.Span(" "),
-	})
+
+	return string.format("%s %s ", size and ya.readable_size(size) or " - ", nicetime)
 end
 
 Status:children_add(function()
 	local h = cx.active.current.hovered
+
 	if not h or not ya.user_name then
 		return ui.Line({})
 	end
