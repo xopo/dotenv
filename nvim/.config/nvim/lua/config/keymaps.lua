@@ -6,6 +6,8 @@ local map = vim.keymap.set
 -- cnext ancprev change on quicklist
 map("n", "˚", "<cmd>cprev<CR>", { desc = "prev quick list element" })
 map("n", "∆", "<cmd>cnext<CR>", { desc = "next quick list element" })
+map("n", "[c", "<cmd>cprev<CR>", { desc = "prev quick list element" })
+map("n", "]c", "<cmd>cnext<CR>", { desc = "next quick list element" })
 
 -- resource for lua stuff
 map("n", "<space><space>x", "<cmd>source %<CR>")
@@ -18,3 +20,11 @@ map("n", "<space>fe", "<CMD>Yazi<CR>")
 
 -- undotree
 map("n", "<space>U", ":UndotreeToggle<CR>", { desc = "toggle undo tree" })
+
+map("n", "<space>w", function()
+    vim.cmd("w")
+    vim.cmd("source %")
+end, { desc = "save and source file" })
+
+map("n", "<space>gwwc", ":GitWorktreeCreate<CR>", { desc = "Worktree Create" })
+map("n", "<space>gwws", ":GitWorktreeSwitch<CR>", { desc = "Worktree Switch" })

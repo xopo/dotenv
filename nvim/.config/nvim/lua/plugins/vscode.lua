@@ -1,5 +1,6 @@
 return {
     "Mofiqul/vscode.nvim",
+    enabled = false,
     opts = {
         colorscheme = "vscode",
         transparent = true,
