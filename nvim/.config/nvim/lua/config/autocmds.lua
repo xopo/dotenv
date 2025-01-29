@@ -9,3 +9,15 @@
 
 vim.cmd([[highlight VertSplit guifg=#2e2e2e guibg=#2e2e2e]])
 vim.cmd([[highlight WinSeparator guifg=#fff]])
+
+-- keymap for request (postman functionality)
+vim.api.nvim_create_augroup("http_bindings", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "http",
+    callback = function()
+        print("make keybindings for rest")
+        vim.keymap.set("n", "<space>rr", "<cmd>Rest run<cr>", { desc = "Rest run" })
+        vim.keymap.set("n", "<space>rl", "<cmd>Rest last<cr>", { desc = "Rest last" })
+    end,
+    group = "http_bindings",
+})

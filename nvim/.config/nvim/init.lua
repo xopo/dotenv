@@ -7,3 +7,5 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
         vim.diagnostic.enable(false)
     end,
 })
+
+vim.cmd("packadd cfilter")
