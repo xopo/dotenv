@@ -21,3 +21,57 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
     group = "http_bindings",
 })
+
+-- vim.api.nvim_create_augroup("focus_group", { clear = true })
+--
+-- vim.api.nvim_create_autocmd({ "InsertEnter", "BufEnter", "BufWinEnter", "WinEnter" }, {
+--     callback = function()
+--         vim.api.nvim_set_hl(0, "Normal", { bg = "#000000" })
+--     end,
+--     group = "focus_group",
+-- })
+-- vim.api.nvim_create_autocmd({ "InsertLeave", "BufLeave", "WinLeave" }, {
+--     callback = function()
+--         vim.api.nvim_set_hl(0, "Normal", { bg = "#1c1c1c" })
+--     end,
+--     group = "focus_group",
+-- })
+
+-- /*
+-- vim.cmd([[echo "hello colorscheme"]])
+-- vim.cmd([[colorscheme catppuccin-macchiato]])
+-- vim.cmd([[
+--   " Transparent background by default
+--   autocmd VimEnter * highlight Normal ctermbg=none guibg=none
+--
+--   " Change background to red when switching between windows (splits)
+--   augroup change_bg_on_split
+--     autocmd!
+--     autocmd WinEnter * highlight Normal ctermbg=red guibg=#1b212c
+--     autocmd WinLeave * highlight Normal ctermbg=none guibg=none
+--   augroup END
+--
+--   " Change background to blue in insert mode
+--   autocmd InsertEnter * highlight Normal ctermbg=blue guibg=#191b20
+--   autocmd InsertLeave * highlight Normal ctermbg=none guibg=none
+-- ]])
+-- */
+
+-- hi DimNormal guibg=#1b212c
+-- hi DimConsole guifg=#d8dee9 guibg=#1b212c
+--
+-- function! DimWindow()
+--   if getwinvar(winnr(), '&diff')==1
+--     return
+--   endif
+--   if getwininfo(win_getid())[0].terminal==1
+--     setlocal wincolor=DimConsole
+--   else
+--     setlocal wincolor=DimNormal
+--   endif
+-- endfunction
+--
+-- augroup ActiveWin | au!
+--   au WinEnter,BufEnter,BufWinEnter * setlocal wincolor=
+--   au WinLeave,BufLeave * call DimWindow()
+-- augroup
