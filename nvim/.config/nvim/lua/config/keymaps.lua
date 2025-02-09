@@ -8,10 +8,7 @@ local map = vim.keymap.set
 -- map("n", "-", "<CMD>Yazi<CR>", { desc = "Open parent directory" })
 
 -- file editor default open shortcut set to Yazi
--- map("n", "<space>fe", "<CMD>Yazi<CR>")
-map("n", "<space>fe", function()
-    require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
-end)
+map("n", "<space>fe", "<CMD>Yazi<CR>")
 
 -- undotree
 map("n", "<space>U", ":UndotreeToggle<CR>", { desc = "toggle undo tree" })
