@@ -8,6 +8,22 @@ return {
             },
         },
     },
+    {
+        "folke/snacks.nvim",
+        ---@type snacks.Config
+        opts = {
+            lazygit = {
+                -- your lazygit configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+                configure = true,
+                theme = {
+                    [241] = { fg = "special" },
+                    activeBorderColor = { fg = "Constant", bold = true },
+                },
+            },
+        },
+    },
 
     {
         "folke/noice.nvim",

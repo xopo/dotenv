@@ -1,11 +1,12 @@
 return {
     "nvim-focus/focus.nvim",
+    enable = false,
     version = false,
     config = function()
         require("focus").setup({
             enable = true,
             autoresize = {
-                enable = true,
+                enable = false,
             },
             -- relativenumber = true,
             ui = {
