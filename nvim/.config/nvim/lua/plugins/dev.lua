@@ -1,7 +1,7 @@
 return {
     {
         dir = "~/learn/lua/fzf-worktree.nvim/dev",
-        enabled = true,
+        enabled = false,
         event = "VeryLazy",
         config = function()
             print("loading worktree")
