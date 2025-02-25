@@ -35,16 +35,17 @@ end
 
 vim.api.nvim_create_augroup("focus_group", { clear = true })
 
-vim.api.nvim_create_autocmd({ "InsertEnter", "BufEnter", "BufWinEnter", "WinEnter" }, {
+vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter", "FocusGained" }, {
     callback = function()
         vim.api.nvim_set_hl(0, "Normal", { bg = "#1c1c1c" })
         blink()
+        vim.cmd([[set mouse=nvi]])
     end,
     group = "focus_group",
 })
-vim.api.nvim_create_autocmd({ "InsertLeave", "BufLeave", "WinLeave" }, {
+vim.api.nvim_create_autocmd({ "WinLeave", "FocusLost" }, {
     callback = function()
-        vim.api.nvim_set_hl(0, "Normal", { bg = "#000000" })
+        vim.api.nvim_set_hl(0, "Normal", { bg = "#333333" })
     end,
     group = "focus_group",
 })

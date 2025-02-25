@@ -4,6 +4,10 @@
 
 local map = vim.keymap.set
 
+-- map Q to record macro instead of q
+vim.api.nvim_set_keymap("n", "q", "<nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "Q", "q", { noremap = true, silent = true })
+
 -- Oil speed shortcut
 -- map("n", "-", "<CMD>Yazi<CR>", { desc = "Open parent directory" })
 
