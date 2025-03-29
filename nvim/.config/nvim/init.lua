@@ -39,7 +39,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter", "FocusGained" }, {
     callback = function()
         vim.api.nvim_set_hl(0, "Normal", { bg = "#1c1c1c" })
         blink()
-        vim.cmd([[set mouse=nvi]])
+        -- vim.cmd([[set mouse=nvi]])
     end,
     group = "focus_group",
 })

@@ -9,6 +9,14 @@ return {
         },
     },
     {
+        "williamboman/mason-lspconfig.nvim",
+        opts = {
+            ensure_installed = {
+                "eslint@4.8.0",
+            },
+        },
+    },
+    {
         "folke/snacks.nvim",
         ---@type snacks.Config
         opts = {
@@ -24,7 +32,41 @@ return {
             },
         },
     },
-
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        config = function()
+            require("render-markdown").setup({
+                checkbox = {
+                    enabled = true,
+                    render_modes = false,
+                    right_pad = 1,
+                    unchecked = {
+                        icon = "󰄱 ",
+                        highlight = "RenderMarkdownUnchecked",
+                        scope_highlight = nil,
+                    },
+                    checked = {
+                        icon = "󰱒 ",
+                        highlight = "RenderMarkdownChecked",
+                        scope_highlight = nil,
+                    },
+                    custom = {
+                        todo = {
+                            raw = "[-]",
+                            rendered = "󰥔 ",
+                            highlight = "RenderMarkdownTodo",
+                            scope_highlight = nil,
+                        },
+                    },
+                },
+            })
+        end,
+    },
     {
         "folke/noice.nvim",
         enable = false,

@@ -3,7 +3,7 @@ return {
         "stevearc/oil.nvim",
         enabled = false,
         ---@module 'oil'
-        ---@type oil.SetupOpts
+        -- @type oil.SetupOpts
         opts = {},
         -- Optional dependencies
         dependencies = { { "echasnovski/mini.icons", opts = {} } },
@@ -12,5 +12,12 @@ return {
     {
         "nvim-neo-tree/neo-tree.nvim",
         enabled = false,
+    },
+    {
+        "supermaven-inc/supermaven-nvim",
+        enabled = false,
+        config = function()
+            require("supermaven-nvim").setup({})
+        end,
     },
 }
