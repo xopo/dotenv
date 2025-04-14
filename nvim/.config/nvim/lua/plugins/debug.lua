@@ -14,9 +14,35 @@ return {
             dap.configurations.go = {
                 {
                     type = "go",
+                    name = "Attach",
+                    request = "attach",
+                    mode = "local",
+                    processid = function()
+                        --// try to find pid
+                        local pid = vim.fn.input("Enter PID:")
+                        return tonumber(pid)
+                    end,
+                },
+                {
+                    type = "go",
                     name = "Debug",
                     request = "launch",
                     program = "${workspaceFolder}/cmd/main.go",
+                },
+                {
+                    type = "go",
+                    name = "Attach",
+                    request = "attach",
+                    mode = "local",
+                    processid = function()
+                        --// try to find pid
+                        local handle = io.popen('pgrep -f "cmd/main.go')
+                        local pid = handle:read("*n")
+                        handle:close()
+                        return pid or error("No process found")
+                        -- local pid = vim.fn.input("Enter PID:")
+                        -- return tonumber(pid)
+                    end,
                 },
             }
 

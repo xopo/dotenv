@@ -1,0 +1,40 @@
+toMp3() {
+  if [[ -z "$1" ]]; then 
+    echo "Error, you need to add an imput video (mp4) to be converted"
+    return 1
+  fi 
+
+  input_file="$1"
+  desired_name="${2:-$(basename "$input_file" .mp4)}"
+  output_name="${desired_name}.mp3"
+  echo "desired name is ${desired_name}\n\n"
+  echo "output name is ${output_name}\n\n"
+
+  if [[ ! -f "$input_file" ]]; then 
+    echo "Error: Input file '$input_file' not found"
+  fi
+
+  echo "Converting '$input_file' to '$output_name' ..."
+  ffmpeg -i "$input_file" -vn -ar 44100 -ac 2 -ab 192k -f mp3 "$output_name"
+  
+  if [[ $? -eq 0 ]]; then 
+    echo "Conversion completed."
+  else 
+    echo "Converion failes"
+  fi
+}
+
+
+alias edit='nvim $(fzf --preview="bat --color=always {}")'
+
+
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+alias work='cd $(find ~/work ~/learn ~/tmp -maxdepth 2 | fzf)'
