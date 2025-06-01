@@ -11,15 +11,36 @@ vim.cmd([[highlight VertSplit guifg=#2e2e2e guibg=#2e2e2e]])
 vim.cmd([[highlight WinSeparator guifg=#fff]])
 
 -- keymap for request (postman functionality)
-vim.api.nvim_create_augroup("http_bindings", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "http",
+vim.api.nvim_create_augroup('http_bindings', { clear = true })
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'http',
     callback = function()
-        print("make keybindings for rest")
-        vim.keymap.set("n", "<space>rr", "<cmd>Rest run<cr>", { desc = "Rest run" })
-        vim.keymap.set("n", "<space>rl", "<cmd>Rest last<cr>", { desc = "Rest last" })
+        print('make keybindings for rest')
+        vim.keymap.set('n', '<space>rr', '<cmd>Rest run<cr>', { desc = 'Rest run' })
+        vim.keymap.set('n', '<space>rl', '<cmd>Rest last<cr>', { desc = 'Rest last' })
     end,
-    group = "http_bindings",
+    group = 'http_bindings',
+})
+
+-- autosave on lost focus
+vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost' }, {
+    callback = function()
+        if vim.bo.modified and not vim.bo.readonly and vim.fn.expand('%') ~= '' then vim.cmd('silent write') end
+    end,
+})
+
+-- disable diagnostic on .env files
+local group = vim.api.nvim_create_augroup('__env', { clear = true })
+vim.api.nvim_create_autocmd('BufEnter', {
+    pattern = '.env',
+    group = group,
+    callback = function() vim.diagnostic.enable(false) end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost' }, {
+    pattern = '.env',
+    group = group,
+    callback = function() vim.diagnostic.enable(true) end,
 })
 
 -- vim.api.nvim_create_augroup("focus_group", { clear = true })

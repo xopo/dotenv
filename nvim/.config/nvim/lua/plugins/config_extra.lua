@@ -1,23 +1,23 @@
 return {
     {
-        "folke/noice.nvim",
-        event = "VeryLazy",
+        'folke/noice.nvim',
+        event = 'VeryLazy',
         opts = {
             presets = {
                 lsp_doc_border = true,
             },
         },
     },
+    -- {
+    --     "williamboman/mason-lspconfig.nvim",
+    --     opts = {
+    --         ensure_installed = {
+    --             "eslint@4.8.0",
+    --         },
+    --     },
+    -- },
     {
-        "williamboman/mason-lspconfig.nvim",
-        opts = {
-            ensure_installed = {
-                "eslint@4.8.0",
-            },
-        },
-    },
-    {
-        "folke/snacks.nvim",
+        'folke/snacks.nvim',
         ---@type snacks.Config
         opts = {
             lazygit = {
@@ -26,41 +26,41 @@ return {
                 -- refer to the configuration section below
                 configure = true,
                 theme = {
-                    [241] = { fg = "special" },
-                    activeBorderColor = { fg = "Constant", bold = true },
+                    [241] = { fg = 'special' },
+                    activeBorderColor = { fg = 'Constant', bold = true },
                 },
             },
         },
     },
     {
-        "MeanderingProgrammer/render-markdown.nvim",
+        'MeanderingProgrammer/render-markdown.nvim',
         enabled = true,
-        dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
         -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
         -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
         ---@module 'render-markdown'
         ---@type render.md.UserConfig
         config = function()
-            require("render-markdown").setup({
+            require('render-markdown').setup({
                 checkbox = {
                     enabled = true,
                     render_modes = false,
                     -- right_pad = 1,
                     unchecked = {
-                        icon = "󰄱 ",
-                        highlight = "RenderMarkdownUnchecked",
+                        icon = '󰄱 ',
+                        highlight = 'RenderMarkdownUnchecked',
                         scope_highlight = nil,
                     },
                     checked = {
-                        icon = "󰱒 ",
-                        highlight = "RenderMarkdownChecked",
+                        icon = '󰱒 ',
+                        highlight = 'RenderMarkdownChecked',
                         scope_highlight = nil,
                     },
                     custom = {
                         todo = {
-                            raw = "[-]",
-                            rendered = "󰥔 ",
-                            highlight = "RenderMarkdownTodo",
+                            raw = '[-]',
+                            rendered = '󰥔 ',
+                            highlight = 'RenderMarkdownTodo',
                             scope_highlight = nil,
                         },
                     },
@@ -69,17 +69,17 @@ return {
         end,
     },
     {
-        "folke/noice.nvim",
+        'folke/noice.nvim',
         enable = false,
         lazy = true,
         -- event = "user fileopened",
         opts = {
             cmdline = {
-                view = "cmdline",
+                view = 'cmdline',
             },
         },
-        event = "VeryLazy",
-        dependencies = { "rcarriga/nvim-notify", "MunifTanjim/nui.nvim" },
+        event = 'VeryLazy',
+        dependencies = { 'rcarriga/nvim-notify', 'MunifTanjim/nui.nvim' },
         -- setup = function()
         --     require("noice").setup({
         --         lsp = {

@@ -38,3 +38,16 @@ function yy() {
 }
 
 alias work='cd $(find ~/work ~/learn ~/tmp -maxdepth 2 | fzf)'
+
+emoji() {
+  emojis=$(curl -sSL 'https://git.io/JXXO7')
+    selected_emoji=$(echo "$emojis" | fzf)
+    if [[ -n "$selected_emoji" ]]; then
+        echo -n "$selected_emoji" | pbcopy
+        echo "Copied $selected_emoji to clipboard"
+    else
+        echo "No emoji selected"
+    fi
+}
+
+source <(fzf --zsh)
