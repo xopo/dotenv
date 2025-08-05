@@ -1,0 +1,32 @@
+#
+# ███████╗███████╗███████╗██╗  ██╗     ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗ 
+# ██╔════╝██╔════╝██╔════╝██║  ██║    ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝ 
+# ███████╗█████╗  ███████╗███████║    ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗
+# ╚════██║██╔══╝  ╚════██║██╔══██║    ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║
+# ███████║███████╗███████║██║  ██║    ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝
+# ╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝     ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝ 
+#
+# Smart session manager for the terminal
+# https://github.com/joshmedeski/sesh
+
+sort_order = ["tmux", "config", "tmuxinator", "zoxide"]
+
+[default_session]
+startup_command = "nvim +GoToFile"
+startup_command_ignore_dirs = ["~/repos", "~/.config"]
+preview_command = "eza --all --git --icons --color=always {}"
+
+[[session]]
+name = "go-pocket"
+path = "~/learn/go/learngo-pocket/"
+startup_command = "nvim"
+
+[[session]]
+name = "downloads"
+path = "~/Downloads/"
+startup_command = "yazi"
+
+[[session]]
+name = "learn"
+path = "~/learn/"
+startup_command = "yazi"

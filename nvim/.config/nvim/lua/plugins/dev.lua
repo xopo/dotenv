@@ -1,5 +1,6 @@
 return {
     { 'mason-org/mason.nvim', version = '^2.0.0' },
+
     {
         dir = '~/learn/lua/fzf-worktree.nvim/dev',
         enabled = false,

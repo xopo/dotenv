@@ -322,6 +322,24 @@ cmd-alt-h = []          # Disable "hide others"
 # ]
 
 
+#skip tilling for this
+[[on-window-detected]]
+if.app-id = 'com.apple.iBooksX'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+run = "layout floating"
+
+
 [[on-window-detected]]
 if.app-id = 'org.mozilla.librewolf'
 run = "move-node-to-workspace 2"
