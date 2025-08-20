@@ -1,8 +1,16 @@
 -- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Default keymaps that arej always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+--local mak = require('macaltkey')
+-- use mak to map alt keys stuff
+-- mak.keymap.set("n", "<a-a>", {mapping}, {opts}, {opts2})
+
 local map = vim.keymap.set
+
+-- move visual selected lines
+map('v', 'J', ":m '>+1<CR>gv=gv")
+map('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- map Q to record macro instead of q
 -- vim.api.nvim_set_keymap("n", "q", "<nop>", { noremap = true, silent = true })

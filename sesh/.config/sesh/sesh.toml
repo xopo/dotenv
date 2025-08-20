@@ -30,3 +30,9 @@ startup_command = "yazi"
 name = "learn"
 path = "~/learn/"
 startup_command = "yazi"
+
+[[session]]
+name = "media"
+path = "~/learn/media"
+preview_command = "eza --all --git --icons --color=always {}"
+startup_command = "nvim"
