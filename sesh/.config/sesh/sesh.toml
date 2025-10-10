@@ -12,27 +12,26 @@
 sort_order = ["tmux", "config", "tmuxinator", "zoxide"]
 
 [default_session]
-startup_command = "nvim +GoToFile"
+startup_command = "yy"
 startup_command_ignore_dirs = ["~/repos", "~/.config"]
 preview_command = "eza --all --git --icons --color=always {}"
 
 [[session]]
 name = "go-pocket"
 path = "~/learn/go/learngo-pocket/"
-startup_command = "nvim"
+startup_command = "~/.config/sesh/scripts/devenv.sh"
 
 [[session]]
 name = "downloads"
 path = "~/Downloads/"
-startup_command = "yazi"
+startup_command = "yy"
 
 [[session]]
 name = "learn"
 path = "~/learn/"
-startup_command = "yazi"
+startup_command = "yy"
 
 [[session]]
-name = "media"
-path = "~/learn/media"
-preview_command = "eza --all --git --icons --color=always {}"
-startup_command = "nvim"
+name = "go-gallery"
+path = "~/learn/go/go-gallery/"
+startup_command = "~/.config/sesh/scripts/devenv.sh"

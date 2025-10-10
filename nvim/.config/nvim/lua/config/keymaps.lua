@@ -31,6 +31,7 @@ map('n', '<space>jsb', "<cmd>:'<,'>! jq .<cr>", { desc = 'json block prettyfy' }
 map('n', '<space>jsf', '<cmd>:%! jq .<cr>', { desc = 'json file prettyfy' })
 -- map('n', '<space>jss', '<cmd>:!jq -c .<cr>', { des = 'json stringify block' })
 -- file editor default open shortcut set to Yazi
+-- map('n', '<space>yy', '<CMD>Yazi<CR>')
 map('n', '<space>fe', '<CMD>Yazi<CR>')
 
 -- undotree
