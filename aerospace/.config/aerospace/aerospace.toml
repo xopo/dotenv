@@ -352,6 +352,9 @@ run = "move-node-to-workspace 10"
 if.app-id = 'com.operasoftware.Opera'
 run = "move-node-to-workspace 3"
 
+[[on-window-detected]]
+if.app-id = 'com.brave.Browser'
+run = "move-node-to-workspace 4"
 
 [[on-window-detected]]
 if.app-id = 'org.jkiss.dbeaver.core.product'
@@ -365,18 +368,22 @@ run = "move-node-to-workspace 1"
 if.app-id = 'com.vscodium'
 run = "move-node-to-workspace 8"
 
-[[on-window-detect]]
-if-app-id = 'com.apple.Preview'
+[[on-window-detected]]
+if.app-id = 'com.apple.Preview'
 run = 'layout floating'
 
-[[on-window-detect]]
-if-app-id = 'com.apple.ActivityMonitor'
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
 run = 'layout floating'
 
-[[on-window-detect]]
-if-app-id = 'com.apple.Notes'
+[[on-window-detected]]
+if.app-id = 'com.apple.Notes'
 run = 'layout floating'
 
-[[on-window-detect]]
-if-app-id = 'com.apple.iCal'
+[[on-window-detected]]
+if.app-id = 'com.apple.DiskUtility'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
 run = 'layout floating'

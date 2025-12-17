@@ -1,9 +1,9 @@
 return {
     { -- Useful plugin to show you pending keybinds.
-        "folke/which-key.nvim",
-        event = "VeryLazy",
+        'folke/which-key.nvim',
+        event = 'VeryLazy',
         opts = {
-            preset = "modern",
+            preset = 'modern',
         },
     },
 }

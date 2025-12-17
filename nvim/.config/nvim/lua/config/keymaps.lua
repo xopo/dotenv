@@ -8,6 +8,9 @@
 
 local map = vim.keymap.set
 
+map('n', 'Q', 'q', { desc = 'Record macro (prev q)' })
+map('n', 'q', '<Nop>', { desc = 'Disabled (pls use Q for macros)' })
+
 -- move visual selected lines
 map('v', 'J', ":m '>+1<CR>gv=gv")
 map('v', 'K', ":m '<-2<CR>gv=gv")

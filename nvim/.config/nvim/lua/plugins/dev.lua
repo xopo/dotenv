@@ -1,35 +1,72 @@
 return {
     {
-        'clvnkhr/macaltkey.nvim',
-        config = function() require('macaltkey').setup() end,
-    },
-
-    {
-        dir = '~/learn/lua/fzf-worktree.nvim/dev',
+        'ray-x/navigator.lua',
         enabled = false,
-        event = 'VeryLazy',
+        requires = {
+            { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
+            { 'neovim/nvim-lspconfig' },
+        },
         config = function()
-            print('loading worktree')
-            require('fzf-worktree')
+            require('navigator').setup({
+                debug = false,
+                width = 0.75,
+            })
         end,
     },
     {
-        dir = '~/learn/lua/present.nvim',
-        enabled = false,
+        'chrisgrieser/nvim-early-retirement', -- close buffers not used after a while - 20min default
+        config = true,
         event = 'VeryLazy',
-        config = function() require('present') end,
     },
     {
-        'ray-x/go.nvim',
-        enabled = false,
-        dependencies = { -- optional packages
-            'ray-x/guihua.lua',
-            'neovim/nvim-lspconfig',
-            'nvim-treesitter/nvim-treesitter',
+        -- there are problems in mac with alt key inside vim/nvim
+        'clvnkhr/macaltkey.nvim',
+        config = function() require('macaltkey').setup() end,
+    },
+    {
+        'nvim-treesitter/nvim-treesitter',
+        optional = true,
+        opts = {
+            ensure_installed = { 'sql' },
         },
-        config = function() require('go').setup() end,
-        event = { 'CmdlineEnter' },
-        ft = { 'go', 'gomod' },
-        build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+    },
+    {
+        'folke/noice.nvim',
+        event = 'VeryLazy',
+        -- enabled = false,
+        opts = {
+            -- cmdline = {
+            --     enabled = false,
+            -- },
+            -- messages = {
+            --     enabled = false,
+            -- },
+        },
+    },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+            code = {
+                sign = true,
+                width = 'block',
+                right_pad = 1,
+            },
+            heading = {
+                sign = true,
+                icons = {},
+            },
+            checkbox = {
+                enabled = true,
+            },
+        },
+        ft = { 'markdown', 'norg', 'rmd', 'org', 'codecompanion' },
+        config = function(_, opts)
+            require('render-markdown').setup(opts)
+            Snacks.toggle({
+                name = 'Render Markdown',
+                get = require('render-markdown').get,
+                set = require('render-markdown').set,
+            }):map('<leader>um')
+        end,
     },
 }

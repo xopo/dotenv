@@ -1,0 +1,3 @@
+
+# disabled pager on startup
+enable_pager = False 

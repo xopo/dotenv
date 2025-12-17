@@ -74,14 +74,6 @@ vim.api.nvim_create_autocmd({ 'BufLeave', 'WinLeave' }, {
     end,
 })
 
-vim.api.nvim_create_autocmd('LspAttach', {
-    callback = function(ev)
-        local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        if client:supports_method('textDocument/completion') then
-            vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-        end
-    end,
-})
 
 vim.api.nvim_create_autocmd('BufLeave', {
     pattern = '*',
@@ -89,33 +81,3 @@ vim.api.nvim_create_autocmd('BufLeave', {
         if vim.fn.bufname() ~= '' and vim.bo.modifiable then vim.cmd('silent update') end
     end,
 })
-
--- When the terminal loses focus, apply the unfocused highlight to all windows
--- vim.api.nvim_create_autocmd("FocusLost", {
---     group = "buffer_highlight",
---     callback = function()
---         -- Apply unfocused highlight to all open windows
---         for _, win_id in ipairs(vim.api.nvim_list_wins()) do
---             vim.api.nvim_win_set_hl_ns(win_id, ns_inactive)
---         end
---     end,
--- })
-
--- vim.api.nvim_create_augroup("focus_group", { clear = true })
---
--- vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
---     callback = function()
---         vim.api.nvim_set_hl(0, "Normal", { bg = "#1c1c1c" })
---         blink()
---         -- vim.cmd([[set mouse=nvi]])
---     end,
---     group = "focus_group",
--- })
--- vim.api.nvim_create_autocmd({ "WinLeave", "FocusLost" }, {
---     callback = function()
---         vim.api.nvim_set_hl(0, "Normal", { bg = "#333333" })
---     end,
---     group = "focus_group",
--- })
-
--- vim.opt.guicursor = "i:block-blinkwait1000-blinkon500-blinkoff500";

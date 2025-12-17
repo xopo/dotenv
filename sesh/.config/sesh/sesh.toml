@@ -35,3 +35,18 @@ startup_command = "yy"
 name = "go-gallery"
 path = "~/learn/go/go-gallery/"
 startup_command = "~/.config/sesh/scripts/devenv.sh"
+
+[[session]]
+name = "go-playground"
+path = "~/learn/go/playground/"
+startup_command = "~/.config/sesh/scripts/devenv.sh"
+
+[[session]]
+name = "solid-mp3"
+path = "~/learn/_projects/solid-mp3"
+startup_command = "~/.config/sesh/scripts/devenv.sh"
+
+[[session]]
+name = "learn odin"
+path = "~/learn/odin/"
+startup_command = "~/.config/sesh/scripts/devenv.sh"

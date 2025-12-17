@@ -51,3 +51,26 @@ emoji() {
 }
 
 source <(fzf --zsh)
+
+# lazy() {
+#   local config_dir="$HOME/.config/lazy_nvim"
+#   echo "from config dir $config_dir"
+#   # If no argument -> open fresh empty buffer 
+#   if [ $# -eq 0 ]; then 
+#     cd "$config_dir" && \nvim -u init.lua init.lua
+#   else 
+#     # expand ~ and handle multiple files 
+#     local files=()
+#     for arg in "$@"; do 
+#       files+=("$(realpath -m "$arg" 2>/dev/null || echo "$arg")")
+#     done
+#     NVIM_APPNAME=lazyvim nvim -u "$config_dir/init.lua" "${files[@]}"
+#   fi
+# }
+
+vv() {
+  select config in e nvim 
+  do NVIM_APPNAME=nvim-$config nvim $@;break;done
+}
+
+alias e="NVIM_APPNAME=lazy_nvim nvim"
