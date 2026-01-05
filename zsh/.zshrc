@@ -32,5 +32,5 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 [ -f "$HOME/.zsh_local" ] && source "$HOME/.zsh_local"
-[ -f "$HOME/.config/.zsh_aliases" ] && source "$HOME/.config/.zsh_aliases"
-[ -f "$HOME/.config/.zsh_work" ] && source "$HOME/.config/.zsh_work"
+[ -f "$HOME/.zsh_aliases" ] && source "$HOME/.zsh_aliases"
+[ -f "$HOME/.zsh_work" ] && source "$HOME/.zsh_work"
