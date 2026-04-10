@@ -1,16 +1,16 @@
 return {
-    "Mofiqul/vscode.nvim",
+    'Mofiqul/vscode.nvim',
     enabled = true,
     opts = {
-        colorscheme = "vscode",
+        colorscheme = 'vscode',
         transparent = true,
         italic_comments = true,
     },
     config = function()
         color_overrides = {
-            vscTabCurrent = "#008000",
-            vscBack = "#008000",
+            vscTabCurrent = '#008000',
+            vscBack = '#008000',
         }
-        vim.cmd([[colorscheme vscode]])
+        vim.cmd('colorscheme vscode')
     end,
 }

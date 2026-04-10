@@ -37,6 +37,11 @@ path = "~/learn/go/go-gallery/"
 startup_command = "~/.config/sesh/scripts/devenv.sh"
 
 [[session]]
+name = "pingpong"
+path = "~/learn/_projects/pingpong/"
+startup_command = "~/.config/sesh/scripts/devenv.sh"
+
+[[session]]
 name = "dotenv"
 path = "~/dotenv/"
 startup_command = "yy"

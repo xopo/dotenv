@@ -6,7 +6,7 @@ set mouse=a
 set rtp+=/opt/homebrew/opt/fzf
 
 nnoremap Q q
-nnorempa q <Nop>
+nnoremap q <Nop>
 
 augroup env_filetype
   autocmd!

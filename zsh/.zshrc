@@ -31,6 +31,18 @@ export HOST="home mb2pro"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-[ -f "$HOME/.config/zsh/.zsh_local" ] && source "$HOME/.config/zsh/.zsh_local"
+[ -f "$HOME/.zsh_local" ] && source "$HOME/.zsh_local"
 [ -f "$HOME/.config/zsh/.zsh_aliases" ] && source "$HOME/.config/zsh/.zsh_aliases"
 [ -f "$HOME/.config/zsh/.zsh_work" ] && source "$HOME/.config/zsh/.zsh_work"
+
+function sesh-sessions() {
+  {
+    exec </dev/tty
+    exec <&1
+    local session
+    session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+    zle reset-prompt > /dev/null 2>&1 || true
+    [[ -z "$session" ]] && return
+    sesh connect $session
+  }
+}

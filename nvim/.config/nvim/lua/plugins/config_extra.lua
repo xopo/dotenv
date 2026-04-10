@@ -45,19 +45,35 @@ return {
     },
     -- {
     --     'hrsh7th/nvim-cmp',
-    --     enabled = false,
-    --     opts = function(_, opts)
+    --     enabled = true,
+    --     -- opts = function(_, opts)
+    --     --     local cmp = require('cmp')
+    --     --
+    --     --     opts.preselect = cmp.PreselectMode.None
+    --     --
+    --     --     -- Optional: keep manual keys
+    --     --     opts.mapping['<C-n>'] = cmp.mapping.select_next_item()
+    --     --     opts.mapping['<C-p>'] = cmp.mapping.select_prev_item()
+    --     --     opts.mapping['<C-Space>'] = cmp.mapping.complete()
+    --     --     opts.mapping['<CR>'] = cmp.mapping.confirm({ select = false })
+    --     --
+    --     --     -- cmp.config.sources({
+    --     --     --     { name = 'nvim_lsp', priority = 1000 },
+    --     --     --     { name = 'path', priority = 800 },
+    --     --     --     { name = 'copilot', priority = 50 },
+    --     --     -- })
+    --     --
+    --     --     return opts
+    --     -- end,
+    --     config = function()
     --         local cmp = require('cmp')
-    --
-    --         opts.preselect = cmp.PreselectMode.None
-    --
-    --         -- Optional: keep manual keys
-    --         opts.mapping['<C-n>'] = cmp.mapping.select_next_item()
-    --         opts.mapping['<C-p>'] = cmp.mapping.select_prev_item()
-    --         opts.mapping['<C-Space>'] = cmp.mapping.complete()
-    --         opts.mapping['<CR>'] = cmp.mapping.confirm({ select = false })
-    --
-    --         return opts
+    --         cmp.setup({
+    --             sources = {
+    --                 { name = 'nvim_lsp' },
+    --                 { name = 'buffer' },
+    --                 { name = 'supermaven' },
+    --             },
+    --         })
     --     end,
     -- },
 }

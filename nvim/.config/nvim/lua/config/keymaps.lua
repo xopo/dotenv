@@ -8,6 +8,12 @@
 
 local map = vim.keymap.set
 
+-- move around in insert when Ctrl is pressed
+vim.keymap.set('i', '<C-h>', '<C-o>h')
+vim.keymap.set('i', '<C-j>', '<C-o>j')
+vim.keymap.set('i', '<C-k>', '<C-o>k')
+vim.keymap.set('i', '<C-l>', '<C-o>l')
+
 map('n', 'Q', 'q', { desc = 'Record macro (prev q)' })
 map('n', 'q', '<Nop>', { desc = 'Disabled (pls use Q for macros)' })
 

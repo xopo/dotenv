@@ -17,6 +17,10 @@ return {
         'chrisgrieser/nvim-early-retirement', -- close buffers not used after a while - 20min default
         config = true,
         event = 'VeryLazy',
+        opts = {
+            retirementAgeMins = 60,
+            minimumBufferNum = 4,
+        },
     },
     {
         -- there are problems in mac with alt key inside vim/nvim
@@ -27,9 +31,10 @@ return {
         'nvim-treesitter/nvim-treesitter',
         optional = true,
         opts = {
-            ensure_installed = { 'sql' },
+            ensure_installed = { 'sql', 'odin', 'go' },
         },
     },
+
     {
         'folke/noice.nvim',
         event = 'VeryLazy',
@@ -68,5 +73,19 @@ return {
                 set = require('render-markdown').set,
             }):map('<leader>um')
         end,
+    },
+    {
+        'dmtrKovalenko/fff.nvim',
+        build = function() require('fff.download').download_or_build_binary() end,
+        lazy = false, -- recommended for fast startup
+    },
+
+    {
+        'madmaxieee/fff-snacks.nvim',
+        lazy = false,
+        keys = {
+            { '<leader>ff', function() require('fff-snacks').find_files() end, desc = 'FFF Find files' },
+            { '<leader>sg', function() require('fff-snacks').live_grep() end, desc = 'FFF Live grep' },
+        },
     },
 }

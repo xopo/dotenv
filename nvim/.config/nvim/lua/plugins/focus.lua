@@ -1,16 +1,16 @@
 return {
-    "nvim-focus/focus.nvim",
+    'nvim-focus/focus.nvim',
     enable = false,
     version = false,
     config = function()
-        require("focus").setup({
+        require('focus').setup({
             enable = true,
             autoresize = {
                 enable = false,
             },
             -- relativenumber = true,
             ui = {
-                number = true,
+                -- number = true,
                 -- hibridnumber = true,
                 absolutenumber_unfocussed = true,
                 winhighlight = true,
@@ -19,7 +19,7 @@ return {
             },
             colorcolumn = {
                 enable = true,
-                list = "+1,+2",
+                list = '+1,+2',
             },
         })
     end,

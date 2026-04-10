@@ -8,8 +8,14 @@ tmux split-window -h
 tmux send-keys "htop" Enter
 tmux split-window -vl 60%
 tmux send-keys "btop" Enter
+tmux select-pane -U
+tmux select-pane -U
+tmux select-pane -U
+tmux split-window -h
+tmux send-keys "fastfetch" Enter
 
 # select left pane
+tmux select-pane -L
 tmux select-pane -L
 tmux send-keys "love you"
 

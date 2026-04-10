@@ -74,3 +74,14 @@ vv() {
 }
 
 alias e="NVIM_APPNAME=lazy_nvim nvim"
+
+read_slow() {
+  if [[ -z "$1" ]]; then 
+    echo "Usage: read_slow <file>"
+    return 1
+  fi
+  while IFS= read -r line; do
+    echo "$line"
+    sleep 0.05
+  done < "$1"
+}
