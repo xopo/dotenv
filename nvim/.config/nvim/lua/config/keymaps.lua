@@ -9,10 +9,14 @@
 local map = vim.keymap.set
 
 -- move around in insert when Ctrl is pressed
-vim.keymap.set('i', '<C-h>', '<C-o>h')
-vim.keymap.set('i', '<C-j>', '<C-o>j')
-vim.keymap.set('i', '<C-k>', '<C-o>k')
-vim.keymap.set('i', '<C-l>', '<C-o>l')
+-- vim.keymap.set('i', '<C-h>', '<C-o>h')
+-- vim.keymap.set('i', '<C-j>', '<C-o>j')
+-- vim.keymap.set('i', '<C-k>', '<C-o>k')
+-- vim.keymap.set('i', '<C-l>', '<C-o>l')
+vim.keymap.set('i', '<C-w>h', '<C-o><C-w>h')
+vim.keymap.set('i', '<C-w>j', '<C-o><C-w>j')
+vim.keymap.set('i', '<C-w>k', '<C-o><C-w>k')
+vim.keymap.set('i', '<C-w>l', '<C-o><C-w>l')
 
 map('n', 'Q', 'q', { desc = 'Record macro (prev q)' })
 map('n', 'q', '<Nop>', { desc = 'Disabled (pls use Q for macros)' })
@@ -33,8 +37,7 @@ map('n', '<C-d>', '<C-d>zz')
 map('n', '<C-f>', '<C-f>zz')
 map('n', '<C-b>', '<C-b>zz')
 
--- Oil speed shortcut
--- map("n", "-", "<CMD>Yazi<CR>", { desc = "Open parent directory" })
+-- json shortcuts
 map('n', '<space>jsl', '<cmd>:.! jq .<cr>', { desc = 'json inline prettyfy' })
 map('n', '<space>jsb', "<cmd>:'<,'>! jq .<cr>", { desc = 'json block prettyfy' })
 map('n', '<space>jsf', '<cmd>:%! jq .<cr>', { desc = 'json file prettyfy' })

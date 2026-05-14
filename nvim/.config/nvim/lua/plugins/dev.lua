@@ -75,17 +75,10 @@ return {
         end,
     },
     {
-        'dmtrKovalenko/fff.nvim',
-        build = function() require('fff.download').download_or_build_binary() end,
-        lazy = false, -- recommended for fast startup
-    },
-
-    {
-        'madmaxieee/fff-snacks.nvim',
-        lazy = false,
-        keys = {
-            { '<leader>ff', function() require('fff-snacks').find_files() end, desc = 'FFF Find files' },
-            { '<leader>sg', function() require('fff-snacks').live_grep() end, desc = 'FFF Live grep' },
+        'folke/snacks.nvim',
+        ---@type snacks.Config
+        opts = {
+            scratch = { ft = 'markdown' },
         },
     },
 }

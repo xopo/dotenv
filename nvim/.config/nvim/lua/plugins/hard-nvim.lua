@@ -1,6 +1,6 @@
 return {
     'm4xshen/hardtime.nvim',
-    dnabled = false,
+    enabled = false,
     dependencies = { 'MunifTanjim/nui.nvim' },
     opts = {},
 }
